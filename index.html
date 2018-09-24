@@ -1,1 +1,33 @@
-
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="productivity.css" />
+		<title></title>
+	</head>
+	<body>
+		<div id="navbar">
+			<ul id="header">
+				<li class="header-item current"><a href="index.html" class="header-link">To Do</a></li>
+				<li class="header-item"><a href="gallery.html" class="header-link">Gallery</a></li>
+				<li class="header-item"><a href="about.html" class="header-link">About</a></li>
+			</ul>
+		</div>
+		<div id="todo-container">
+			<h1 style="margin-top:100px;">To Do:</h1>
+			<ul id="todo-list"></ul>
+			<input id="item" type="text" placeholder="What do you need to do" />
+			<input id="date" type="datetime-local" />
+			<input id="category" type="text" list="categories" placeholder="Enter a category">
+			<datalist id="categories">
+				<option value="School">School</option>
+				<option value="Work">Work</option>
+				<option value="Personal">Personal</option>
+				<option value="Home">Home</option>
+			</datalist>
+			<button onclick="AddItem()">Add</button>
+		</div>
+		<script type="text/javascript" src="productivity.js"></script>
+	</body>
+</html>
