@@ -3,7 +3,7 @@ body {
     font-family: "Courier New";
     margin: 0px;
     position: relative;
-    font-size: 16pt;
+    font-size: 12pt;
 }
 input {
     width: 20%;
@@ -15,6 +15,14 @@ input {
 }
 ::placeholder {
     color: rgb(161, 161, 161);
+}
+table, tr {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100%;
+}
+td {
+    text-align: center;
 }
 /* header */
 #header {
@@ -49,4 +57,15 @@ input {
 .todo-container {
     position: relative;
     margin-top: 500px;
+}
+#todo-column {
+    width: 30%;
+}
+#category {
+    width: 10%;
+    min-width: 100px;
+}
+#date, #time{
+    width: 10%;
+    min-width: 120px;
 }
