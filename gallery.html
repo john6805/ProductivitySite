@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="productivity.css" />
+		<title></title>
+	</head>
+	<body>
+		<div id="navbar">
+			<ul id="header">
+				<li id="header-one" class="header-item"><a href="index.html" class="header-link">To Do</a></li>
+				<li class="header-item current"><a href="gallery.html" class="header-link">Gallery</a></li>
+				<li class="header-item"><a href="about.html" class="header-link">About</a></li>
+			</ul>
+        </div>
+        <div id="gallery-container">
+            <img class="thumbnail" onclick="openModal(1)" src="images/image1.jpg" />
+            <img class="thumbnail" onclick="openModal(2)"src="images/image2.jpg" />
+            <img class="thumbnail" onclick="openModal(3)"src="images/image3.jpg" />
+            <img class="thumbnail" onclick="openModal(4)"src="images/image4.jpg" />
+            <img class="thumbnail" onclick="openModal(5)"src="images/image5.jpg" />
+            <img class="thumbnail" onclick="openModal(6)"src="images/image6.jpg" />
+            <img class="thumbnail" onclick="openModal(7)"src="images/image7.jpg" />
+            <img class="thumbnail" onclick="openModal(8)"src="images/image8.jpg" />
+            <img class="thumbnail" onclick="openModal(9)"src="images/image9.jpg" />
+            <img class="thumbnail" onclick="openModal(10)"src="images/image10.jpg" />
+            <img class="thumbnail" onclick="openModal(11)"src="images/image11.jpg" />
+            <img class="thumbnail" onclick="openModal(12)"src="images/image12.jpg" />
+            <img class="thumbnail" onclick="openModal(13)"src="images/image13.jpg" />
+            <img class="thumbnail" onclick="openModal(14)"src="images/image14.jpg" />
+            <img class="thumbnail" onclick="openModal(15)"src="images/image15.jpg" />
+            <img class="thumbnail" onclick="openModal(16)"src="images/image16.jpg" />
+            <img class="thumbnail" onclick="openModal(17)"src="images/image17.jpg" />
+            <img class="thumbnail" onclick="openModal(18)"src="images/image18.jpg" />
+            <img class="thumbnail" onclick="openModal(19)"src="images/image19.jpg" />
+            <img class="thumbnail" onclick="openModal(20)"src="images/image20.jpg" />
+            <img class="thumbnail" onclick="openModal(21)"src="images/image21.jpg" />
+        </div>
+        <div id="gallery-modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+            <a class="next" onclick="changeImage(1)">&#10095;</a>
+            <a id="play" onclick="play()">Play &#9654</a>
+            <a id="stop" onclick="stop()">Stop &#9632</a>
+            
+            <div class="slide-container fade"><img class="slide" src="images/image1.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image2.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image3.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image4.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image5.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image6.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image7.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image8.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image9.jpg" /></div>
+            <div class="slide-container fade"><img class="slide" src="images/image10.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image11.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image12.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image13.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image14.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image15.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image16.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image17.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image18.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image19.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image20.jpg" /> </div>
+            <div class="slide-container fade"><img class="slide" src="images/image21.jpg" /> </div>
+            <div id="thumbnail-container">
+                <img class="thumbnail" onclick="showImages(1)" src="images/image1.jpg" />
+                <img class="thumbnail" onclick="showImages(2)"src="images/image2.jpg" />
+                <img class="thumbnail" onclick="showImages(3)"src="images/image3.jpg" />
+                <img class="thumbnail" onclick="showImages(4)"src="images/image4.jpg" />
+                <img class="thumbnail" onclick="showImages(5)"src="images/image5.jpg" />
+                <img class="thumbnail" onclick="showImages(6)"src="images/image6.jpg" />
+                <img class="thumbnail" onclick="showImages(7)"src="images/image7.jpg" />
+                <img class="thumbnail" onclick="showImages(8)"src="images/image8.jpg" />
+                <img class="thumbnail" onclick="showImages(9)"src="images/image9.jpg" />
+                <img class="thumbnail" onclick="showImages(10)"src="images/image10.jpg" />
+                <img class="thumbnail" onclick="showImages(11)"src="images/image11.jpg" />
+                <img class="thumbnail" onclick="showImages(12)"src="images/image12.jpg" />
+                <img class="thumbnail" onclick="showImages(13)"src="images/image13.jpg" />
+                <img class="thumbnail" onclick="showImages(14)"src="images/image14.jpg" />
+                <img class="thumbnail" onclick="showImages(15)"src="images/image15.jpg" />
+                <img class="thumbnail" onclick="showImages(16)"src="images/image16.jpg" />
+                <img class="thumbnail" onclick="showImages(17)"src="images/image17.jpg" />
+                <img class="thumbnail" onclick="showImages(18)"src="images/image18.jpg" />
+                <img class="thumbnail" onclick="showImages(19)"src="images/image19.jpg" />
+                <img class="thumbnail" onclick="showImages(20)"src="images/image20.jpg" />
+                <img class="thumbnail" onclick="showImages(21)"src="images/image21.jpg" /> 
+            </div>
+            <div class="footer"></div>
+        </div>
+		<script type="text/javascript" src="gallery.js"></script>
+	</body>
+</html>
