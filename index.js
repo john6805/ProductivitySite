@@ -94,7 +94,7 @@ function SortTable(index)
     {
         if(index != 4)
         {
-            values[i - 1] = {value: rows[i].cells[index].innerHTML, row: i};
+            values[i - 1] = {value: rows[i].cells[index].innerHTML, row: i, checked: rows[i].cells[4].getElementsByTagName("input")[0].checked};
         }
         else if(index == 4)
         {
@@ -140,6 +140,14 @@ function SortTable(index)
             if(values[i].value == 1)
             {
                 table.rows[i + 1].cells[index].getElementsByTagName("input")[0].click();
+            }
+        }
+        else
+        {
+            table.rows[i + 1].cells[4].getElementsByTagName("input")[0].onclick = ToggleCheckbox;
+            if(values[i].checked)
+            {
+                table.rows[i + 1].cells[4].getElementsByTagName("input")[0].click();
             }
         }
     }
