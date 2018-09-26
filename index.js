@@ -1,4 +1,6 @@
 var reverseIndex = -1;
+var dataListColors = ["#74a0e8", "#74e8a2", "#a0e874", "#e8b574"];
+var deleteRowIndex;
 function ToggleCheckbox()
 {
     if(this.checked)
@@ -21,7 +23,9 @@ function AddItem()
     var item = document.getElementById("item");
     var date = document.getElementById("date");
     var time = document.getElementById("time");
+    var color = document.getElementById("color");
     var category = document.getElementById("category");
+    var dataList = document.getElementById("categories");
     var table = document.getElementById("todo-list");
     var dateAdded = new Date();
     var tableData = document.createElement("td");
@@ -29,10 +33,12 @@ function AddItem()
     var deleteButton = document.createElement("button");
     var checkbox = document.createElement("input");
     var tableRow = table.insertRow();
+    var colorSet = false;
 
     deleteButton.textContent = "Delete";
     deleteButton.onclick = () => {
-        table.deleteRow(event.target.parentElement.parentElement.rowIndex);
+        deleteRowIndex = event.target.parentElement.parentElement.rowIndex;
+        OpenModal();
     };
 
     checkbox.type = "checkbox";
@@ -42,6 +48,24 @@ function AddItem()
     deletionCell.appendChild(deleteButton);
 
     tableRow.insertCell(0).innerHTML = item.value;
+    for(var i = 0; i < dataList.options.length; i++)
+    {
+        if(dataList.options[i].value == category.value)
+        {
+            tableRow.cells[0].style.backgroundColor = dataListColors[i];
+            colorSet = true;
+            break;
+        }
+    }
+    if(!colorSet)
+    {
+        tableRow.cells[0].style.backgroundColor = color.value;
+        dataListColors.push(color.value);
+        var newOption = document.createElement("option");
+        newOption.value = category.value;
+        newOption.textContent = category.value;
+        dataList.appendChild(newOption);
+    }
     tableRow.insertCell(1).innerHTML = category.value;
     tableRow.insertCell(2).innerHTML = dateAdded.getFullYear() + "-" + (dateAdded.getMonth()+1) + "-" + dateAdded.getDate() 
         + " " + dateAdded.getHours() + ":" + (dateAdded.getMinutes() < 10 ? "0" + dateAdded.getMinutes() : dateAdded.getMinutes())
@@ -119,7 +143,25 @@ function SortTable(index)
             }
         }
     }
-                
+}
+
+function OpenModal()
+{
+    var modal = document.getElementById("warning-modal");
+    modal.style.display = "block";
+}
+
+function CloseModal()
+{
+    var modal = document.getElementById("warning-modal");
+    modal.style.display = "none";
+    deleteRowIndex = -1;
+}
+
+function DeleteRow()
+{
+    var table = document.getElementById("todo-list");
+    table.deleteRow(deleteRowIndex);
 }
 
 var addButton = document.getElementById("add-button");
