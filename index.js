@@ -3,11 +3,17 @@ function ToggleCheckbox()
 {
     if(this.checked)
     {
-        this.parentElement.parentElement.style.backgroundColor = "grey";
+        this.parentElement.parentElement.cells[0].style.opacity = "0.3";
+        this.parentElement.parentElement.cells[1].style.opacity = "0.3";
+        this.parentElement.parentElement.cells[2].style.opacity = "0.3";
+        this.parentElement.parentElement.cells[3].style.opacity = "0.3";
     }
     else
     {
-        this.parentElement.parentElement.style.backgroundColor = "white";
+        this.parentElement.parentElement.cells[0].style.opacity = "1";
+        this.parentElement.parentElement.cells[1].style.opacity = "1";
+        this.parentElement.parentElement.cells[2].style.opacity = "1";
+        this.parentElement.parentElement.cells[3].style.opacity = "1";
     }
 }
 function AddItem() 
@@ -28,6 +34,7 @@ function AddItem()
     deleteButton.onclick = () => {
         table.deleteRow(event.target.parentElement.parentElement.rowIndex);
     };
+
     checkbox.type = "checkbox";
     checkbox.onclick = ToggleCheckbox;
 
@@ -53,53 +60,66 @@ function SortTable(index)
     var table = document.getElementById("todo-list");
     var rows = table.rows;
     var values = [];
+    var htmlValues = [];
     if(rows.length <= 1)
     {
         return;
     }
-    if (index != 4)
+
+    for(var i = 1; i < rows.length; i++)
     {
-        for(var i = 1; i < rows.length; i++)
+        if(index != 4)
         {
             values[i - 1] = {value: rows[i].cells[index].innerHTML, row: i};
         }
-        console.log(values);
-        values.sort(function(a, b) {
-            if(a.value < b.value)
-            {
-                return -1;
-            }
-            if(a.value > b.value)
-            {
-                return 1;
-            }
-            return 0;
-        });
-        if(index == reverseIndex)
+        else if(index == 4)
         {
-            values.reverse();
-            reverseIndex = -1;
+            values[i - 1] = {value: (rows[i].cells[index].getElementsByTagName("input")[0].checked) ? 1 : -1, row: i};
         }
-        else
-        {
-            reverseIndex = index;
-        }
-        console.log(values);
-        for(var i = 0; i < values.length; i++)
-        {
-            table.deleteRow(-1);
-        }
-        for(var i = 0; i < values.length; i++)
-        {
-            table.appendChild(rows[values[i].index])
-        }
-    }          
-    if(index == 4)
-    {
-        rows.sort(function (a, b) {
-            return (a.cells[index].getElementsByTagName("input").checked === b.cells[index].getElementsByTagName("input").checked)? 0: a? -1: 1;
-        });
     }
+    values.sort(function(a, b) {
+        if(a.value < b.value)
+        {
+            return -1;
+        }
+        if(a.value > b.value)
+        {
+            return 1;
+        }
+        return 0;
+    });
+    console.log(values);
+    if(index == reverseIndex)
+    {
+        values.reverse();
+        reverseIndex = -1;
+    }
+    else
+    {
+        reverseIndex = index;
+    }
+
+    for(var i = 0; i < values.length; i++)
+    {
+        htmlValues[i] = rows[values[i].row].innerHTML;
+    }
+    for(var i = 0; i < values.length; i++)
+    {
+        table.deleteRow(-1);
+    }
+    for(var i = 0; i < values.length; i++)
+    {
+        table.insertRow(-1).innerHTML = htmlValues[i];
+        if(index == 4)
+        {
+            table.rows[i + 1].cells[index].getElementsByTagName("input")[0].onclick = ToggleCheckbox;
+            if(values[i].value == 1)
+            {
+                table.rows[i + 1].cells[index].getElementsByTagName("input")[0].click();
+            }
+        }
+    }
+                
 }
 
 var addButton = document.getElementById("add-button");

@@ -26,6 +26,10 @@ table, tr {
 td {
     text-align: center;
 }
+th:hover {
+    cursor: pointer;
+    background-color: #999
+}
 .footer {
     width:100%;
     height: 50px;
@@ -75,14 +79,16 @@ td {
 #todo-column {
     width: 30%;
 }
-#category {
+#category{
     width: 10%;
     min-width: 100px;
 }
-#date, #time{
+#date, #time, #color{
     width: 10%;
     min-width: 120px;
+    cursor: pointer;
 }
+
 
 /* gallery */
 #gallery-container {
