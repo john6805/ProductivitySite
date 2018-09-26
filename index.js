@@ -150,6 +150,10 @@ function SortTable(index)
                 table.rows[i + 1].cells[4].getElementsByTagName("input")[0].click();
             }
         }
+        table.rows[i + 1].cells[5].getElementsByTagName("button")[0].onclick = () => {
+            deleteRowIndex = index;
+            OpenModal();
+        };
     }
 }
 

@@ -241,7 +241,7 @@ th:hover {
   }
 
   /* about */
-  #me {
+  .me {
       width: 35%;
       margin-left: 50px;
       padding-top: 5px;
