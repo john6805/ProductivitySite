@@ -15,7 +15,7 @@
 			</ul>
 		</div>
 		<div id="todo-container">
-			<h1 style="margin-top:100px;">To Do:</h1>
+			<h1 class="title">To Do:</h1>
 			<input id="item" type="text" placeholder="What do you need to do" />
 			<input id="date" type="date" />
 			<input id="time" type="time" />
@@ -26,14 +26,15 @@
 				<option value="Personal">Personal</option>
 				<option value="Home">Home</option>
 			</datalist>
+			<input id="color" type="color" />
 			<button id="add-button">Add</button>
 			<table id="todo-list">
 				<tr>
 					<th id="todo-column">To Do:</th>
-					<th id="category-column">Category</th>
-					<th id="date-added-column">Date Added</th>
-					<th id="date-complete-column">Complete by:</th>
-					<th id="completed-column">Completed</th>
+					<th id="category-column" onclick="SortTable(1)">Category</th>
+					<th id="date-added-column" onclick="SortTable(2)">Date Added</th>
+					<th id="date-complete-column" onclick="SortTable(3)">Complete by:</th>
+					<th id="completed-column" onclick="SortTable(4)">Completed</th>
 					<th id="deletion-column"></th>
 				</tr>
 			</table>
